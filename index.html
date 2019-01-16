@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">    
+
+    <title>cc-anim-editor</title>
+    <link rel="stylesheet" href="../node_modules/bulma/css/bulma.min.css">
+    <style>
+        .no-select {
+          -webkit-user-select: none;
+        }
+        .tabs li.is-active a {
+          border-bottom-color: orange;
+          color: orange;
+        }
+        .tabs a {
+          color : white;
+        }
+        .tabs a:hover {
+          color : white;
+          border-bottom-color: white;
+        }
+      </style>
+  </head>
+  <body>
+    <div class="columns has-background-grey">
+      <div id="canvas" class="column is-two-thirds">
+            <!-- Phaser space -->
+      </div>
+      <div id="app" class="column is-one-third">
+          <div class="tabs is-centered">
+            <ul>
+            <li class="is-active"><a>NamedSheets</a></li>
+            <li><a>SUBs</a></li>
+            </ul>
+          </div>    
+        <App></App>
+      </div>
+    </div>
+    <script src="/dist/build.js"></script>
+  </body>
+</html>
