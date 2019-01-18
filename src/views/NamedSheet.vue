@@ -2,7 +2,7 @@
     <div class="card no-select has-background-grey-light">
         <header class="card-header">
             <div>
-                <a v-on:click="function() {}" @contextmenu="function() {}" class="card-header-title">
+                <a v-on:click="onSelect" @contextmenu="function() {}" class="card-header-title">
                 {{ name }}
                 </a>
             </div>
@@ -10,7 +10,7 @@
                 <input v-model="sheet.name" @keyup.enter="function() {}" class="input is-primary" />
             </div>
         </header>
-        <div class="card-content">
+        <div class="card-content" v-if="activeSheetName === name">
             <div class="field">
                 <div class="control">
                     <input v-model="sheet.src" class="input is-primary" type="text" placeholder="src" />
@@ -53,7 +53,7 @@
         }
     }
     module.exports = {
-        props : ["name", "src", "offX", "offY", "width", "height", "xCount"],
+        props : ["activeSheetName", "name", "src", "offX", "offY", "width", "height", "xCount"],
         data() {
             return {
                 sheet : {
@@ -68,6 +68,11 @@
                 }
                 
             };
+        },
+        methods : {
+            onSelect() {
+                this.$emit('selected', this.name);
+            }
         },
         watch : {
             "sheet.name" : function(newName, oldName) {

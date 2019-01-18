@@ -10,22 +10,19 @@
 
 
 import MultiDirAnimation from './views/MultiDirAnimation.vue';
+
+import MultiDirAnimationModel from './model/MultiDirAnimation';
+
 export default {
   components : {
     MultiDirAnimation
   },
+  created() {
+    this.instance = new MultiDirAnimationModel();
+  },
   data()  {
     return {
-      namedSheets : {
-        walk : {
-          src : "hi",
-          offX : 0,
-          offY : 0,
-          width : 32,
-          height : 32,
-          xCount : 5 
-        }
-      }
+      instance : null,   
     };
   }
 }
